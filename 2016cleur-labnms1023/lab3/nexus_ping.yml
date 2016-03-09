@@ -1,0 +1,13 @@
+---
+
+- name: Ping Check
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    # test reachability to 8.8.8.8 using mgmt vrf
+    - name: Check whether Ping to internet works from each switch
+      nxos_ping: dest=8.8.8.8 vrf=management host={{ inventory_hostname }}
+

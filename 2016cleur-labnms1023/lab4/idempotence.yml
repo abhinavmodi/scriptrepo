@@ -1,0 +1,11 @@
+---
+
+- name: Playbook to demonstrate idempotence
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - nxos_interface: interface=Ethernet2/4 description='ABCDEFGH' mode=layer3 host={{ inventory_hostname }}
+
